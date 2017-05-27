@@ -1,0 +1,40 @@
+.App {
+  text-align: center;
+}
+
+.mini-App-logo {
+  height: 30px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.commandBar {
+  height: 50px;
+  background-color: #22D;
+  color: white;
+  padding-top: 12px;
+}
+
+.placeholder4CommandBar {
+  height: 50px;
+  background-color: #22A;
+}
+
+.myBtn {
+  background: inherit;
+  border: inherit;
+}
