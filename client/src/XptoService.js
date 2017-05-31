@@ -1,16 +1,22 @@
 
 const initialXptos = [
-    [true, '12312312312312312312', '5543999991111', 'V', 'Enabled'],
-    [false, '32132132132132132132', '5543999991112', 'C', 'Enabled'],
-    [false, '66699966666699966699', '5543999991113', 'T', 'Disabled']
+    {checked: true, id: '12312312312312312312', number: '5543999991111', model: 'V', status: 'Enabled'},
+    {checked: false, id: '32132132132132132132', number: '5543999991112', model: 'C', status: 'Enabled'},
+    {checked: false, id: '66699966666699966699', number: '5543999991113', model: 'T', status: 'Disabled'}
+]
+
+const xptosFound = [
+    {id: '12312312312312312312', number: '5543999991111', model: 'V', status: 'Disabled'},
+    {id: '32132132132132132132', number: '5543999991112', model: 'C', status: 'Disabled'}
 ]
 
 function getInitial(callback) {
     callback(initialXptos)
 }
 
-function execute(payload) {
-    console.log('Executing', payload)
+function execute(payload, callback) {
+    console.log('Executing', JSON.stringify(payload))
+    callback && callback(xptosFound)
 }
 
 const XptoService = { 
