@@ -11,7 +11,8 @@ class App extends Component {
     super(props);
     this.state = {
       xptos: [],
-      textAreaValue: ''
+      textAreaValue: '',
+      tableFilterText: ''
     }
   }
 
@@ -73,8 +74,20 @@ class App extends Component {
     reader.readAsText(file)
   }
   
+  onTableFilterTextChanged = (e) => {
+    const txt = e.target.value
+    this.setState({tableFilterText: txt})
+  }
+
   render() {
-    let {xptos} = this.state;
+    let {xptos, tableFilterText} = this.state;
+    xptos = xptos.filter(x => {
+      return ('' + x.id + x.number + x.model + x.status)
+          .toLowerCase()
+          .indexOf(
+              tableFilterText.toLowerCase()
+          ) !== -1
+    })
 
     const selectedCount = xptos
         .filter(x => x.checked)
@@ -107,7 +120,7 @@ class App extends Component {
               Add
             </button>
             <button className="myBtn" onClick={() => this.actOnRows('Find')}>
-              <span className="myBtn glyphicon glyphicon-search" />
+              <span className="glyphicon glyphicon-search" />
               Find
             </button>
             <button className="myBtn" onClick={() => this.actOnRows('Disable')}>
@@ -120,31 +133,6 @@ class App extends Component {
             </button>
           </p>
           <p className="placeholder4CommandBar" hidden={selectedCount}></p>
-
-          {/*<p>*/}
-            {/*<div>*/}
-              {/*<textarea
-                value={this.state.textAreaValue}
-                onChange={this.textAreaChanged}
-                placeholder='This is free text area'
-              ></textarea>*/}
-              {/*<br/>*/}
-            {/*</div>*/}
-            {/*<span>*/}
-              {/*<label htmlFor="file-uploader" className="custom-file-uploader">
-                  <i className="fa fa-cloud-upload"></i> Custom Upload
-              </label>
-              <input
-                id="file-uploader"
-                type='file'
-                onChange={this.fileChanged}
-              ></input>
-              <button
-                onClick={this.textAreaSubmit}
-              >Submit</button>*/}
-            {/*</span>*/}
-          {/*</p>*/}
-
 
           <table id='main-table' className='table'>
             <thead>
@@ -174,8 +162,15 @@ class App extends Component {
                 </th>
               </tr>
               <tr>
-                <th colSpan='5'>
+                <th colSpan='1'>
                   Recent XPTO Table
+                </th>
+                <th colSpan='3'>
+                  <input type='text'
+                      value={this.state.tableFilterText}
+                      onChange={this.onTableFilterTextChanged}
+                      placeholder='Filter text' />
+                  <span className="glyphicon glyphicon-search" />
                 </th>
               </tr>
               <tr>
