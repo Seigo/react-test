@@ -16,6 +16,13 @@ function getInitial(callback) {
 
 function execute(payload, callback) {
     console.log('Executing', JSON.stringify(payload))
+
+    var myRequest = new Request('http://localhost:3000/xpto');
+    fetch(myRequest)
+        .then(function(response) {
+            console.log(response)
+        });
+
     callback && callback(xptosFound)
 }
 

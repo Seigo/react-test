@@ -1,0 +1,19 @@
+
+input[type="file"]#file-uploader {
+    display: none;
+}
+
+.xpto-dashboard-tile {
+    border: 1px solid #c6dcff;
+    display: inline-block;
+    padding: 64px 5px;
+    width: 170px;
+    height: 150px;
+    text-align: center;
+    color: #2b6dd8;
+}
+
+.xpto-dashboard-actionable-tile {
+    border-color: #2b6dd8;
+    cursor: pointer;
+}

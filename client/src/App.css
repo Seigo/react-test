@@ -2,26 +2,6 @@
   text-align: center;
 }
 
-.mini-App-logo {
-  height: 30px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .commandBar {
   height: 50px;
   background-color: #22D;
@@ -37,15 +17,4 @@
 .myBtn {
   background: inherit;
   border: inherit;
-}
-
-input[type="file"]#file-uploader {
-    display: none;
-}
-
-.custom-file-uploader {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
 }
